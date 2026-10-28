@@ -136,6 +136,31 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
   .gallery.g2{grid-template-columns:minmax(0,1fr)}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* added: tables, formulas, skills, photo tag */
+:root{--ink-fixed:#111a26}
+.tbl-wrap{overflow-x:auto;margin:var(--space-6) 0;max-width:100%}
+.tbl{border-collapse:collapse;min-width:100%;background:var(--panel);border:1px solid var(--ink);font-size:15px}
+.tbl caption{text-align:left;font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-muted);padding-bottom:var(--space-2)}
+.tbl th{font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-align:left;background:var(--panel-sunk);color:var(--ink-muted);padding:var(--space-2) var(--space-3);border-bottom:1px solid var(--ink)}
+.tbl td{padding:var(--space-2) var(--space-3);border-top:1px solid var(--rule);vertical-align:top}
+.tbl td.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.tbl th.num{text-align:right}
+.formulas{display:flex;flex-wrap:wrap;gap:var(--space-4)}
+.formula{display:inline-flex;align-items:center;gap:.35em;flex-wrap:wrap;font-family:var(--font-mono);font-size:17px;background:var(--panel);border:1px solid var(--rule);padding:var(--space-3) var(--space-4);margin:var(--space-2) 0 var(--space-4);max-width:100%}
+.frac{display:inline-flex;flex-direction:column;align-items:center;line-height:1.2;vertical-align:middle}
+.frac>span:first-child{border-bottom:1.5px solid currentColor;padding:0 .3em}
+.frac>span:last-child{padding:0 .3em}
+.prose h3.sub{margin-top:var(--space-8)}
+.skillgroups{display:flex;flex-direction:column;gap:var(--space-4)}
+.skillgroups .apr-label{margin-bottom:var(--space-2)}
+.skills .sub{margin-bottom:var(--space-4)}
+.tagwrap{position:relative}
+.ptag{position:absolute;transform:translate(-50%,-100%);background:var(--orange-fill);color:var(--ink-fixed);font-family:var(--font-mono);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:2px var(--space-2)}
+.ptag::after{content:"";position:absolute;left:50%;top:100%;transform:translateX(-50%);border:6px solid transparent;border-top-color:var(--orange-fill)}
+.gallery.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+.phases{list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-family:var(--font-sans);font-size:15px}
+.phases li{display:grid;grid-template-columns:7.5em 1fr;gap:var(--space-3);align-items:baseline}
+.phases li span:first-child{font-family:var(--font-mono);font-size:13px;color:var(--ink-muted)}
 
 </style>
 </head>
@@ -156,21 +181,21 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
     </div>
     <div class="register">
       <p class="apr-label">Drawing register</p>
-      <ol><li><a href="#thermal-detector"><span class="dwg">AR-01</span><span class="rt">Thermal Detector</span><span class="rl">Sep 2025 – Dec 2025</span></a></li><li><a href="#launch-lug-fixture"><span class="dwg">AR-02</span><span class="rt">Launch Lug Fixture</span><span class="rl">—</span></a></li><li><a href="#biped-robot"><span class="dwg">AR-03</span><span class="rt">Biped Robot for Bits and Bolts</span><span class="rl">—</span></a></li><li><a href="#rocket-nozzle"><span class="dwg">AR-04</span><span class="rt">Hybrid Rocket Nozzle</span><span class="rl">—</span></a></li><li><a href="#machining"><span class="dwg">AR-05</span><span class="rt">Machined Parts and CAD</span><span class="rl">—</span></a></li></ol>
+      <ol><li><a href="#thermal-detector"><span class="dwg">AR-01</span><span class="rt">Thermal Detector</span><span class="rl">Sep 2025 – Dec 2025</span></a></li><li><a href="#launch-lug-fixture"><span class="dwg">AR-02</span><span class="rt">Launch Lug Fixture</span><span class="rl">Sep 2026 – Oct 2026</span></a></li><li><a href="#biped-robot"><span class="dwg">AR-03</span><span class="rt">Biped Robot for Bits and Bolts</span><span class="rl">Aug 2026 – Oct 23, 2026</span></a></li><li><a href="#rocket-nozzle"><span class="dwg">AR-04</span><span class="rt">Hybrid Rocket Nozzle</span><span class="rl">Aug 2025 – Dec 2025</span></a></li><li><a href="#machining"><span class="dwg">AR-05</span><span class="rt">Machined Parts and CAD</span><span class="rl">Oct 2026</span></a></li></ol>
     </div>
   </div>
   <h2 class="sec" id="projects">Projects</h2>
-  <div class="cards"><a class="apr-card" href="#thermal-detector"><div class="apr-card-img"><img src="img/thermal-enclosure.jpg" alt="Finished enclosure with the LCD reading 56.26 °F" width="1118" height="983" loading="lazy"></div><div class="apr-card-body"><span class="apr-label"><span class="dwg">AR-01</span> · Assigned course project</span><h3 class="apr-card-title">Thermal Detector</h3><p class="apr-card-sum">An Arduino device that warns when the temperature leaves a 70–75 °F range.</p></div></a><a class="apr-card" href="#launch-lug-fixture"><div class="apr-card-img"><img src="img/lug-installed.jpg" alt="Machined fixture test-fitted in its slot" width="1200" height="1600" loading="lazy"></div><div class="apr-card-body"><span class="apr-label"><span class="dwg">AR-02</span> · BU Rocket Propulsion Group · Argo</span><h3 class="apr-card-title">Launch Lug Fixture</h3><p class="apr-card-sum">The fixture that attaches the launch lugs to Argo, machined from aluminum.</p></div></a><a class="apr-card" href="#biped-robot"><div class="apr-card-img"><img src="img/biped-top.jpg" alt="Top structure that holds the Arduino and battery" width="459" height="655" loading="lazy"></div><div class="apr-card-body"><span class="apr-label"><span class="dwg">AR-03</span> · Girls Who Code × SHPE</span><h3 class="apr-card-title">Biped Robot for Bits and Bolts</h3><p class="apr-card-sum">A biped robot I designed for 30+ students to build at a Girls Who Code and SHPE event.</p></div></a><a class="apr-card" href="#rocket-nozzle"><div class="apr-card-img"><img src="img/nozzle-cad.jpg" alt="Nozzle model in SolidWorks" width="900" height="982" loading="lazy"></div><div class="apr-card-body"><span class="apr-label"><span class="dwg">AR-04</span> · BU Rocket Propulsion Group</span><h3 class="apr-card-title">Hybrid Rocket Nozzle</h3><p class="apr-card-sum">Nozzle geometry, performance calculations and FEA for a hybrid rocket.</p></div></a><a class="apr-card" href="#machining"><div class="apr-card-img"><img src="img/pawn-prototrak.jpg" alt="Verifying the pawn toolpath on the ProtoTRAK RLX" width="1200" height="1600" loading="lazy"></div><div class="apr-card-body"><span class="apr-label"><span class="dwg">AR-05</span> · Shop training, lab work and classwork</span><h3 class="apr-card-title">Machined Parts and CAD</h3><p class="apr-card-sum">A CNC-lathe pawn, a well plate for a research lab, and SolidWorks models.</p></div></a></div>
+  <div class="cards"><a class="apr-card" href="#thermal-detector"><div class="apr-card-img"><img src="img/thermal-enclosure.jpg" alt="Finished enclosure with the LCD reading 56.26 °F" width="1118" height="983" loading="lazy"></div><div class="apr-card-body"><span class="apr-label"><span class="dwg">AR-01</span> · Engineering Design (EK131) · Temperature Sensor</span><h3 class="apr-card-title">Thermal Detector</h3><p class="apr-card-sum">An Arduino device that sounds a buzzer and blinks an LED when the temperature leaves 70–75 °F.</p></div></a><a class="apr-card" href="#launch-lug-fixture"><div class="apr-card-img"><img src="img/lug-installed.jpg" alt="Machined fixture test-fitted in its slot" width="1200" height="1600" loading="lazy"></div><div class="apr-card-body"><span class="apr-label"><span class="dwg">AR-02</span> · BU Rocket Propulsion Group · Argo</span><h3 class="apr-card-title">Launch Lug Fixture</h3><p class="apr-card-sum">The aluminum fixture that aligns Argo on its launch lugs, with bolt and shear calculations.</p></div></a><a class="apr-card" href="#biped-robot"><div class="apr-card-img"><img src="img/biped-event.jpg" alt="Me, in blue, helping students wire their robots at Bits and Bolts" width="877" height="546" loading="lazy"></div><div class="apr-card-body"><span class="apr-label"><span class="dwg">AR-03</span> · Girls Who Code × SHPE</span><h3 class="apr-card-title">Biped Robot for Bits and Bolts</h3><p class="apr-card-sum">A $300 biped robot workshop I designed for Girls Who Code and SHPE.</p></div></a><a class="apr-card" href="#rocket-nozzle"><div class="apr-card-img"><img src="img/nozzle-cad.jpg" alt="Nozzle model in SolidWorks" width="900" height="982" loading="lazy"></div><div class="apr-card-body"><span class="apr-label"><span class="dwg">AR-04</span> · BU Rocket Propulsion Group</span><h3 class="apr-card-title">Hybrid Rocket Nozzle</h3><p class="apr-card-sum">Nozzle geometry, performance calculations and FEA for a hybrid rocket.</p></div></a><a class="apr-card" href="#machining"><div class="apr-card-img"><img src="img/pawn-prototrak.jpg" alt="Verifying the pawn toolpath on the ProtoTRAK RLX" width="1200" height="1600" loading="lazy"></div><div class="apr-card-body"><span class="apr-label"><span class="dwg">AR-05</span> · Shop training, lab work and classwork</span><h3 class="apr-card-title">Machined Parts and CAD</h3><p class="apr-card-sum">A CNC-lathe pawn, a well plate for a research lab, and SolidWorks models and drawings.</p></div></a></div>
   <section class="about" id="about" aria-labelledby="about-h">
     <h2 class="sec" id="about-h">About</h2>
     <div class="about-grid">
       <div class="prose">
-        <p>I study Mechanical Engineering with a concentration in aerospace at Boston University, graduating May 2029 </p>
-        <p>I build with the BU Rocket Propulsion Group on Argo, our flagship rocket, and work as a lab assistant at EPIC, BU’s fabrication facility. My interests are robotics systems design, soft robotics, autonomous systems and aerospace mechanical design.</p>
+        <p>I am a sophomore studying Mechanical Engineering with a concentration in aerospace at Boston University.</p>
+        <p>I help build Argo, the main rocket of the BU Rocket Propulsion Group, and work as a lab assistant at EPIC, BU’s fabrication facility. My interests span robotics systems design, soft robotics, autonomous systems, and aerospace mechanical design.</p>
       </div>
-      <div>
-        <p class="apr-label">Tools across these projects</p>
-        <ul class="apr-chips"><li class="apr-chip">TinkerCAD</li><li class="apr-chip">Onshape</li><li class="apr-chip">Arduino IDE</li><li class="apr-chip">Soldering</li><li class="apr-chip">Fusion Design</li><li class="apr-chip">Fusion CAM</li><li class="apr-chip">CNC Mill</li><li class="apr-chip">Manual Mill</li><li class="apr-chip">Fusion 360</li><li class="apr-chip">SolidWorks</li><li class="apr-chip">Epilog Laser Cutter</li><li class="apr-chip">Adobe Illustrator</li><li class="apr-chip">SolidWorks Simulation (static)</li><li class="apr-chip">ProtoTRAK RLX CNC lathe</li><li class="apr-chip">CNC programming</li></ul>
+      <div class="skills">
+        <h3 class="sub">Technical skills</h3>
+        <div class="skillgroups"><div><p class="apr-label">CAD</p><ul class="apr-chips"><li class="apr-chip">SolidWorks</li><li class="apr-chip">Fusion Design</li><li class="apr-chip">Onshape</li><li class="apr-chip">TinkerCAD</li><li class="apr-chip">Adobe Illustrator</li></ul></div><div><p class="apr-label">Machining</p><ul class="apr-chips"><li class="apr-chip">CNC Mill</li><li class="apr-chip">Manual Mill</li><li class="apr-chip">ProtoTRAK RLX CNC lathe</li><li class="apr-chip">Fusion CAM</li><li class="apr-chip">CNC programming</li><li class="apr-chip">Epilog Laser Cutter</li><li class="apr-chip">3D printing</li><li class="apr-chip">Soldering</li></ul></div><div><p class="apr-label">Analysis</p><ul class="apr-chips"><li class="apr-chip">SolidWorks Simulation (FEA)</li><li class="apr-chip">Bolt preload and stress calculations</li><li class="apr-chip">Factor of safety</li><li class="apr-chip">Rocket performance (Isp, thrust, expansion ratio)</li></ul></div><div><p class="apr-label">Coding</p><ul class="apr-chips"><li class="apr-chip">Arduino IDE</li><li class="apr-chip">Python</li><li class="apr-chip">MATLAB</li><li class="apr-chip">Java</li><li class="apr-chip">HTML/CSS</li></ul></div></div>
       </div>
     </div>
   </section>
@@ -181,22 +206,22 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
   <div class="apr-tb">
     <div><span class="apr-label">Dwg no</span><span class="apr-tb-val apr-dwg">AR-01</span></div>
     <div><span class="apr-label">Project</span><span class="apr-tb-val">Thermal Detector</span></div>
-    <div><span class="apr-label">Context</span><span class="apr-tb-val">Assigned course project</span></div>
+    <div><span class="apr-label">Context</span><span class="apr-tb-val">Engineering Design (EK131) · Temperature Sensor</span></div>
     <div><span class="apr-label">Timeline</span><span class="apr-tb-val">Sep 2025 – Dec 2025</span></div>
   </div>
   <h2 class="ptitle" id="thermal-detector-h">Thermal Detector</h2>
   <div class="phero">
     <figure class="shot hero-shot"><img src="img/thermal-enclosure.jpg" alt="Finished enclosure with the LCD reading 56.26 °F" width="1118" height="983"><figcaption>Finished enclosure with the LCD reading 56.26 °F</figcaption></figure>
     <dl class="spec">
-      <div><dt class="apr-label">Goal</dt><dd>Design a device that can detect non-normal temperature changes.</dd></div>
-      <div><dt class="apr-label">Tools</dt><dd><ul class="apr-chips"><li class="apr-chip">TinkerCAD</li><li class="apr-chip">Onshape</li><li class="apr-chip">Arduino IDE</li><li class="apr-chip">Soldering</li></ul></dd></div>
+      <div><dt class="apr-label">Goal</dt><dd>Build a device that detects changes in temperature and alerts the user, with a buzzer and a blinking LED, when the temperature moves below or above 70–75 °F. The project combined mechanical parts designed in Onshape, an Arduino circuit I built and analyzed, and a custom 3D-printed battery holder.</dd></div>
+      <div><dt class="apr-label">Tools</dt><dd><ul class="apr-chips"><li class="apr-chip">TinkerCAD</li><li class="apr-chip">Onshape</li><li class="apr-chip">Arduino IDE</li><li class="apr-chip">Soldering</li><li class="apr-chip">3D printing</li></ul></dd></div>
       <div><dt class="apr-label">Timeline</dt><dd class="mono">Sep 2025 – Dec 2025</dd></div>
     </dl>
   </div>
   <div class="results">
     <h3 class="sec">Results</h3>
     <div class="apr-readouts"><div class="apr-readout"><span class="apr-label">Alert range</span><span class="apr-readout-num">70–75<small>°F</small></span></div><div class="apr-readout"><span class="apr-label">Sensor</span><span class="apr-readout-num">TMP36</span></div><div class="apr-readout"><span class="apr-label">Power</span><span class="apr-readout-num">9<small>V</small></span></div></div>
-    <div class="prose"><p>The task was to build a device that detects changes in temperature and lets the user know when the temperature moves above or below a set range of 70–75 °F.</p><p>My sensor calculates the temperature from an analog reading of a TMP36, the Arduino converts it, and the LCD shows the result in °F. It reads accurately, but it is not as capable as other temperature sensors because of the TMP36’s restricted temperature range.</p></div>
+    <div class="prose"><p>The design objectives were met to a great extent: the device is lightweight, meets the task requirements, and is wired properly.</p><p>The sensor calculates the temperature from an analog reading of the TMP36 and shows it accurately on the LCD.</p><p>Despite its limitations, the device is useful for monitoring temperature in a workshop or another controlled environment.</p><h3 class="sub">How it works</h3><p>The TMP36 outputs a voltage proportional to temperature. The Arduino reads that voltage on an analog pin as a number from 0 to 1023, converts it back to millivolts, and then to degrees:</p><div class="formula" role="math" aria-label="Voltage in millivolts equals analogRead times V ref over 1023, times 1000"><span>Voltage (mV) = </span><span>(</span><span>analogRead × </span><span class="frac"><span>V<sub>ref</sub></span><span>1023</span></span><span>) × 1000</span></div><p>The TMP36 gives 10 mV per °C with a 500 mV offset, so °C = (mV − 500) / 10 and °F = °C × 9/5 + 32. The LCD shows the reading, and when it leaves 70–75 °F a buzzer sounds and an LED blinks.</p><div class="tbl-wrap"><table class="tbl"><caption>Main components</caption><thead><tr><th scope="col">Electronics</th><th scope="col">Hardware</th></tr></thead><tbody><tr><td>Temperature sensor (TMP36)</td><td>Arduino</td></tr><tr><td>Buzzer (PKM17EP)</td><td>Alphanumeric I²C LCD, 16×2 characters</td></tr><tr><td>LEDs</td><td>9 V battery and snap</td></tr><tr><td>220 Ω and 1000 Ω resistors</td><td>Breadboard, 400 points</td></tr><tr><td>2-way switch</td><td>Enclosure</td></tr><tr><td>22 AWG wire and jumper wires</td><td>4-40 nylon screws</td></tr></tbody></table></div><h3 class="sub">Constraints and limitations</h3><ul class="contrib"><li>The 9 V battery gives a short operating time.</li><li>The device is fragile, so it is not ideal for daily use.</li><li>It works best in a controlled environment such as a workshop.</li></ul></div>
     
   </div>
   <div class="gallery"><figure class="shot"><img src="img/thermal-cad.jpg" alt="Enclosure and lid modeled in Onshape" width="778" height="555" loading="lazy"><figcaption>Enclosure and lid modeled in Onshape</figcaption></figure><figure class="shot"><img src="img/thermal-internals.jpg" alt="Wiring inside the enclosure: Arduino, LCD and 9 V battery" width="1600" height="930" loading="lazy"><figcaption>Wiring inside the enclosure: Arduino, LCD and 9 V battery</figcaption></figure><figure class="shot"><img src="img/thermal-circuit.jpg" alt="Circuit prototyped in TinkerCAD before soldering" width="1600" height="884" loading="lazy"><figcaption>Circuit prototyped in TinkerCAD before soldering</figcaption></figure></div>
@@ -208,24 +233,24 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
     <div><span class="apr-label">Dwg no</span><span class="apr-tb-val apr-dwg">AR-02</span></div>
     <div><span class="apr-label">Project</span><span class="apr-tb-val">Launch Lug Fixture</span></div>
     <div><span class="apr-label">Context</span><span class="apr-tb-val">BU Rocket Propulsion Group · Argo</span></div>
-    <div><span class="apr-label">Timeline</span><span class="apr-tb-val"><span class="todo">Add dates</span></span></div>
+    <div><span class="apr-label">Timeline</span><span class="apr-tb-val">Sep 2026 – Oct 2026</span></div>
   </div>
   <h2 class="ptitle" id="launch-lug-fixture-h">Launch Lug Fixture</h2>
   <div class="phero">
     <figure class="shot hero-shot"><img src="img/lug-installed.jpg" alt="Machined fixture test-fitted in its slot" width="1200" height="1600"><figcaption>Machined fixture test-fitted in its slot</figcaption></figure>
     <dl class="spec">
-      <div><dt class="apr-label">Goal</dt><dd>Design the fixture that connects the launch lugs to Argo, BURPG’s flagship rocket, and check it with FEA before machining.</dd></div>
+      <div><dt class="apr-label">Goal</dt><dd>Design the fixture that connects the launch lugs to Argo, BURPG’s main rocket, so the rocket hangs perfectly vertical for static testing, and check its strength before machining.</dd></div>
       <div><dt class="apr-label">Tools</dt><dd><ul class="apr-chips"><li class="apr-chip">Fusion Design</li><li class="apr-chip">Fusion CAM</li><li class="apr-chip">CNC Mill</li><li class="apr-chip">Manual Mill</li></ul></dd></div>
-      <div><dt class="apr-label">Timeline</dt><dd class="mono"><span class="todo">Add dates</span></dd></div>
+      <div><dt class="apr-label">Timeline</dt><dd class="mono">Sep 2026 – Oct 2026</dd></div>
     </dl>
   </div>
   <div class="results">
     <h3 class="sec">Results</h3>
-    
-    <div class="prose"><p>Modeled the fixture, placed it in the full Argo airframe assembly, then machined it from aluminum and test-fitted it in its slot.</p></div>
+    <div class="apr-readouts"><div class="apr-readout"><span class="apr-label">FOS, shear at LL</span><span class="apr-readout-num">2.54</span></div><div class="apr-readout"><span class="apr-label">FOS, shear at FB</span><span class="apr-readout-num">3.43</span></div><div class="apr-readout"><span class="apr-label">Critical width</span><span class="apr-readout-num">0.420<small>in</small></span></div></div>
+    <div class="prose"><p>Modeled the fixture, placed it in the full Argo airframe assembly, then machined it from aluminum and test-fitted it in its slot.</p><h3 class="sub">Why it matters</h3><p>The rocket has to hang perfectly vertical during static testing, and the launch lugs are what align it. The lug is not load-bearing, so neither is the fixture, but I still calculated bolt preload and shear stress to find its factor of safety.</p><h3 class="sub">Design</h3><p>The same two screw sizes join the launch lugs (LL) to the fixture and the fixture to the fin bar (FB).</p><div class="tbl-wrap"><table class="tbl"><caption>Chosen screws</caption><thead><tr><th scope="col">Screw</th><th scope="col" class="num">Preload (lbf)</th><th scope="col" class="num">Torque (lbf·in)</th></tr></thead><tbody><tr><td>6-32</td><td class="num">1030.27</td><td class="num">15.32</td></tr><tr><td>4-40</td><td class="num">684.12</td><td class="num">28.435</td></tr></tbody></table></div><p>My main concern was buckling, because the geometry is thin. In the end, contact between the rocket’s outer shells and the launch lug provides enough friction to reduce the stress in the bolts. That made the fixture’s width critical: it had to equal the thickness of the thrust structure’s outer shells plus the distance from the floor of the fin bar to where it meets the lug, <span class="mono">0.420 in ± 0.001</span>.</p><div class="tbl-wrap"><table class="tbl"><caption>Hole and fastener measurements (in)</caption><thead><tr><th scope="col">Feature</th><th scope="col" class="num">Radius</th><th scope="col" class="num">Diameter</th></tr></thead><tbody><tr><td>Nominal LL hole</td><td class="num">0.069</td><td class="num">0.138</td></tr><tr><td>Nominal FB hole</td><td class="num">0.0615</td><td class="num">0.123</td></tr><tr><td>4-40 screw head</td><td class="num">0.0915</td><td class="num">0.183</td></tr><tr><td>6-32 screw head</td><td class="num">0.113</td><td class="num">0.226</td></tr><tr><td>4-40 screw OD</td><td class="num">0.056</td><td class="num">0.112</td></tr><tr><td>6-32 screw OD</td><td class="num">0.069</td><td class="num">0.138</td></tr><tr><td>4-40 locknut</td><td class="num">0.1445</td><td class="num">0.289</td></tr><tr><td>6-32 locknut</td><td class="num">0.1805</td><td class="num">0.361</td></tr></tbody></table></div><h3 class="sub">Analysis</h3><p>Material: aluminum 6061-T6. Stresses on the bolts from shear and tensile stress:</p><div class="formulas"><div class="formula"><span>τ = </span><span class="frac"><span>V</span><span>A</span></span></div><div class="formula"><span>σ = </span><span class="frac"><span>F</span><span>A</span></span></div></div><div class="tbl-wrap"><table class="tbl"><caption>Factor of safety</caption><thead><tr><th scope="col">Stress</th><th scope="col" class="num">FOS</th></tr></thead><tbody><tr><td>Shear at launch lug (LL)</td><td class="num">2.5392</td></tr><tr><td>Shear at fin bar (FB)</td><td class="num">3.4347</td></tr></tbody></table></div><h3 class="sub">Conclusion</h3><p>The design is close to the safe range. Switching from aluminum to a material with higher yield and tensile strength would raise the factor of safety, since the fixture can’t be made any wider.</p></div>
     
   </div>
-  <div class="gallery"><figure class="shot"><img src="img/lug-assembly.jpg" alt="Fixture in the Argo airframe assembly" width="834" height="622" loading="lazy"><figcaption>Fixture in the Argo airframe assembly</figcaption></figure><figure class="shot"><img src="img/lug-cad.jpg" alt="Fixture CAD model" width="691" height="535" loading="lazy"><figcaption>Fixture CAD model</figcaption></figure><figure class="shot"><img src="img/lug-machined.jpg" alt="The finished aluminum part" width="1200" height="1600" loading="lazy"><figcaption>The finished aluminum part</figcaption></figure></div>
+  <div class="gallery"><figure class="shot"><img src="img/lug-drawing.jpg" alt="Engineering drawing of the fixture" width="748" height="577" loading="lazy"><figcaption>Engineering drawing of the fixture</figcaption></figure><figure class="shot"><img src="img/lug-assembly.jpg" alt="Fixture in the Argo airframe assembly" width="834" height="622" loading="lazy"><figcaption>Fixture in the Argo airframe assembly</figcaption></figure><figure class="shot"><img src="img/lug-cad.jpg" alt="Fixture CAD model" width="691" height="535" loading="lazy"><figcaption>Fixture CAD model</figcaption></figure><figure class="shot"><img src="img/lug-machined.jpg" alt="The finished aluminum part" width="1200" height="1600" loading="lazy"><figcaption>The finished aluminum part</figcaption></figure></div>
   <nav class="pnav" aria-label="More projects"><a class="pn prev" href="#thermal-detector"><span class="apr-label">← AR-01</span><span>Thermal Detector</span></a><a class="pn next" href="#biped-robot"><span class="apr-label">AR-03 →</span><span>Biped Robot for Bits and Bolts</span></a></nav>
 </section>
 <section class="page project" id="biped-robot" data-route hidden aria-labelledby="biped-robot-h">
@@ -234,24 +259,24 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
     <div><span class="apr-label">Dwg no</span><span class="apr-tb-val apr-dwg">AR-03</span></div>
     <div><span class="apr-label">Project</span><span class="apr-tb-val">Biped Robot for Bits and Bolts</span></div>
     <div><span class="apr-label">Context</span><span class="apr-tb-val">Girls Who Code × SHPE</span></div>
-    <div><span class="apr-label">Timeline</span><span class="apr-tb-val"><span class="todo">Add dates</span></span></div>
+    <div><span class="apr-label">Timeline</span><span class="apr-tb-val">Aug 2026 – Oct 23, 2026</span></div>
   </div>
   <h2 class="ptitle" id="biped-robot-h">Biped Robot for Bits and Bolts</h2>
   <div class="phero">
-    <figure class="shot hero-shot"><img src="img/biped-top.jpg" alt="Top structure that holds the Arduino and battery" width="459" height="655"><figcaption>Top structure that holds the Arduino and battery</figcaption></figure>
+    <figure class="shot hero-shot"><div class="tagwrap"><img src="img/biped-event.jpg" alt="Me, in blue, helping students wire their robots at Bits and Bolts" width="877" height="546"><span class="ptag" style="left:30%;top:33%" aria-hidden="true">Me</span></div><figcaption>Me, in blue, helping students wire their robots at Bits and Bolts</figcaption></figure>
     <dl class="spec">
-      <div><dt class="apr-label">Goal</dt><dd>Design a robot project for the Girls Who Code and SHPE collaboration Bits and Bolts, an event held for 30+ students.</dd></div>
+      <div><dt class="apr-label">Goal</dt><dd>Give students with no previous hardware or software experience insight into electronic components and a chance to work with hardware. Because this was a collaboration with Girls Who Code, the workshop was also tailored to computer science majors. It was built for Bits and Bolts, an event by Girls Who Code and SHPE (the Society of Hispanic Professional Engineers) held for 30+ students.</dd></div>
       <div><dt class="apr-label">Tools</dt><dd><ul class="apr-chips"><li class="apr-chip">Fusion 360</li><li class="apr-chip">SolidWorks</li><li class="apr-chip">TinkerCAD</li><li class="apr-chip">Epilog Laser Cutter</li><li class="apr-chip">Arduino IDE</li><li class="apr-chip">Adobe Illustrator</li></ul></dd></div>
-      <div><dt class="apr-label">Timeline</dt><dd class="mono"><span class="todo">Add dates</span></dd></div>
+      <div><dt class="apr-label">Timeline</dt><dd class="mono">Aug 2026 – Oct 23, 2026<ol class="phases"><li><span>Aug 2026</span><span>First concepts and logistics</span></li><li><span>Oct 23, 2026</span><span>Workshop held</span></li></ol></dd></div>
     </dl>
   </div>
   <div class="results">
     <h3 class="sec">Results</h3>
-    <div class="apr-readouts"><div class="apr-readout"><span class="apr-label">Students</span><span class="apr-readout-num">30+</span></div></div>
-    <div class="prose"><p>I designed the structure and circuitry, as well as the static top structure that holds the Arduino and battery.</p><p>I collaborated with Rogelio Carbajal and Francisco Molina on the final assembly and finished design.</p></div>
+    <div class="apr-readouts"><div class="apr-readout"><span class="apr-label">Budget</span><span class="apr-readout-num">$300</span></div><div class="apr-readout"><span class="apr-label">Planned for</span><span class="apr-readout-num">40<small>people</small></span></div><div class="apr-readout"><span class="apr-label">Robots</span><span class="apr-readout-num">10</span></div><div class="apr-readout"><span class="apr-label">Workshop</span><span class="apr-readout-num">2<small>hours</small></span></div></div>
+    <div class="prose"><p>I designed the structure and circuitry, as well as the static top structure that holds the Arduino and battery.</p><p>I collaborated with Rogelio Carbajal and Francisco Molina on the final assembly and finished design.</p><h3 class="sub">Constraints</h3><ul class="contrib"><li>The whole project could not cost more than $300.</li><li>It had to work for about 40 people across 10 robots.</li><li>It had to be simple enough to build in a 2-hour workshop.</li></ul></div>
     
   </div>
-  <div class="gallery"><figure class="shot"><img src="img/biped-leg.jpg" alt="First concept: servo-driven leg linkage" width="292" height="832" loading="lazy"><figcaption>First concept: servo-driven leg linkage</figcaption></figure></div>
+  <div class="gallery"><figure class="shot"><img src="img/biped-built.jpg" alt="A finished biped robot" width="273" height="469" loading="lazy"><figcaption>A finished biped robot</figcaption></figure><figure class="shot"><img src="img/biped-top.jpg" alt="Top structure that holds the Arduino and battery" width="459" height="655" loading="lazy"><figcaption>Top structure that holds the Arduino and battery</figcaption></figure><figure class="shot"><img src="img/biped-leg.jpg" alt="First concept: servo-driven leg linkage" width="292" height="832" loading="lazy"><figcaption>First concept: servo-driven leg linkage</figcaption></figure></div>
   <nav class="pnav" aria-label="More projects"><a class="pn prev" href="#launch-lug-fixture"><span class="apr-label">← AR-02</span><span>Launch Lug Fixture</span></a><a class="pn next" href="#rocket-nozzle"><span class="apr-label">AR-04 →</span><span>Hybrid Rocket Nozzle</span></a></nav>
 </section>
 <section class="page project" id="rocket-nozzle" data-route hidden aria-labelledby="rocket-nozzle-h">
@@ -260,7 +285,7 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
     <div><span class="apr-label">Dwg no</span><span class="apr-tb-val apr-dwg">AR-04</span></div>
     <div><span class="apr-label">Project</span><span class="apr-tb-val">Hybrid Rocket Nozzle</span></div>
     <div><span class="apr-label">Context</span><span class="apr-tb-val">BU Rocket Propulsion Group</span></div>
-    <div><span class="apr-label">Timeline</span><span class="apr-tb-val"><span class="todo">Add dates</span></span></div>
+    <div><span class="apr-label">Timeline</span><span class="apr-tb-val">Aug 2025 – Dec 2025</span></div>
   </div>
   <h2 class="ptitle" id="rocket-nozzle-h">Hybrid Rocket Nozzle</h2>
   <div class="phero">
@@ -268,7 +293,7 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
     <dl class="spec">
       <div><dt class="apr-label">Goal</dt><dd>Design a hybrid rocket nozzle and validate its structural performance.</dd></div>
       <div><dt class="apr-label">Tools</dt><dd><ul class="apr-chips"><li class="apr-chip">SolidWorks</li><li class="apr-chip">SolidWorks Simulation (static)</li></ul></dd></div>
-      <div><dt class="apr-label">Timeline</dt><dd class="mono"><span class="todo">Add dates</span></dd></div>
+      <div><dt class="apr-label">Timeline</dt><dd class="mono">Aug 2025 – Dec 2025</dd></div>
     </dl>
   </div>
   <div class="results">
@@ -286,7 +311,7 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
     <div><span class="apr-label">Dwg no</span><span class="apr-tb-val apr-dwg">AR-05</span></div>
     <div><span class="apr-label">Project</span><span class="apr-tb-val">Machined Parts and CAD</span></div>
     <div><span class="apr-label">Context</span><span class="apr-tb-val">Shop training, lab work and classwork</span></div>
-    <div><span class="apr-label">Timeline</span><span class="apr-tb-val"><span class="todo">Add dates</span></span></div>
+    <div><span class="apr-label">Timeline</span><span class="apr-tb-val">Oct 2026</span></div>
   </div>
   <h2 class="ptitle" id="machining-h">Machined Parts and CAD</h2>
   <div class="phero">
@@ -294,14 +319,14 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
     <dl class="spec">
       <div><dt class="apr-label">Goal</dt><dd>Build hands-on manufacturing skill on real parts: CNC lathe training, a part for a research lab, and SolidWorks classwork.</dd></div>
       <div><dt class="apr-label">Tools</dt><dd><ul class="apr-chips"><li class="apr-chip">ProtoTRAK RLX CNC lathe</li><li class="apr-chip">CNC programming</li><li class="apr-chip">SolidWorks</li></ul></dd></div>
-      <div><dt class="apr-label">Timeline</dt><dd class="mono"><span class="todo">Add dates</span></dd></div>
+      <div><dt class="apr-label">Timeline</dt><dd class="mono">Oct 2026</dd></div>
     </dl>
   </div>
   <div class="results">
     <h3 class="sec">Results</h3>
     
     <div class="prose"></div>
-    <div class="item"><div class="item-text"><h3 class="sub">Pawn on the CNC lathe</h3><p>Turned a chess pawn on the ProtoTRAK RLX lathe for training.</p></div><div class="gallery g2"><figure class="shot"><img src="img/pawn.jpg" alt="The finished pawn" width="900" height="1600" loading="lazy"><figcaption>The finished pawn</figcaption></figure><figure class="shot"><img src="img/pawn-prototrak.jpg" alt="Verifying the toolpath on the ProtoTRAK RLX" width="1200" height="1600" loading="lazy"><figcaption>Verifying the toolpath on the ProtoTRAK RLX</figcaption></figure></div></div><div class="item"><div class="item-text"><h3 class="sub">Well plate for a research lab</h3><p>Manufactored Teflon Well Plates and Aluminium Molds for usage in project PANDA BEAR. </p></div><div class="gallery g2"><figure class="shot"><img src="img/wellplate.jpg" alt="Well plate with its insert" width="1200" height="1600" loading="lazy"><figcaption>Well plate with its insert</figcaption></figure><figure class="shot"><img src="img/wellplate-skyline.jpg" alt="The finished plate" width="1200" height="1600" loading="lazy"><figcaption>The finished plate</figcaption></figure></div></div><div class="item"><div class="item-text"><h3 class="sub">SolidWorks classwork</h3><p>CAM and block model projects from class.</p></div><div class="gallery g2"><figure class="shot"><img src="img/cam-model.jpg" alt="CAM model project" width="909" height="519" loading="lazy"><figcaption>CAM model project</figcaption></figure><figure class="shot"><img src="img/block-model.jpg" alt="Block model project" width="508" height="609" loading="lazy"><figcaption>Block model project</figcaption></figure></div></div>
+    <div class="item"><div class="item-text"><h3 class="sub">Pawn on the CNC lathe</h3><p>Turned a chess pawn on the ProtoTRAK RLX lathe for training.</p></div><div class="gallery g2"><figure class="shot"><img src="img/pawn.jpg" alt="The finished pawn" width="900" height="1600" loading="lazy"><figcaption>The finished pawn</figcaption></figure><figure class="shot"><img src="img/pawn-prototrak.jpg" alt="Verifying the toolpath on the ProtoTRAK RLX" width="1200" height="1600" loading="lazy"><figcaption>Verifying the toolpath on the ProtoTRAK RLX</figcaption></figure></div></div><div class="item"><div class="item-text"><h3 class="sub">Well plate for a research lab</h3><p>Made the well plate and wrote the program, optimizing machining time with a careful choice of rpm.</p></div><div class="gallery g2"><figure class="shot"><img src="img/wellplate.jpg" alt="Well plate with its insert" width="1200" height="1600" loading="lazy"><figcaption>Well plate with its insert</figcaption></figure><figure class="shot"><img src="img/wellplate-skyline.jpg" alt="The finished plate" width="1200" height="1600" loading="lazy"><figcaption>The finished plate</figcaption></figure></div></div><div class="item"><div class="item-text"><h3 class="sub">SolidWorks classwork</h3><p>CAM and block model projects from class, plus an engineering drawing made in SolidWorks for one of the assignments.</p></div><div class="gallery g3"><figure class="shot"><img src="img/cam-drawing.jpg" alt="Engineering drawing made in SolidWorks" width="822" height="640" loading="lazy"><figcaption>Engineering drawing made in SolidWorks</figcaption></figure><figure class="shot"><img src="img/cam-model.jpg" alt="CAM model project" width="909" height="519" loading="lazy"><figcaption>CAM model project</figcaption></figure><figure class="shot"><img src="img/block-model.jpg" alt="Block model project" width="508" height="609" loading="lazy"><figcaption>Block model project</figcaption></figure></div></div>
   </div>
   
   <nav class="pnav" aria-label="More projects"><a class="pn prev" href="#rocket-nozzle"><span class="apr-label">← AR-04</span><span>Hybrid Rocket Nozzle</span></a><a class="pn next" href="#projects"><span class="apr-label">Index →</span><span>All projects</span></a></nav>
